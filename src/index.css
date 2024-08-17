@@ -1,10 +1,122 @@
-@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+@import 'primeicons/primeicons.css';
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Gilroy bold';
+     src: url('./assets/fonts/Gilroy-Bold.ttf');
+     font-weight: 700; 
+     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy semiBold';
+     src: url('./assets/fonts/Gilroy-Bold.ttf');
+     font-weight: 600; 
+     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy medium';
+    src: url('./assets/fonts/Gilroy-Medium.ttf');
+     font-weight: 500; 
+     font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy reqular';
+    src: url('./assets/fonts/Gilroy-Regular.ttf');
+    font-weight: 400; 
+     font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy light';
+    src: url('./assets/fonts/Gilroy-Light.ttf');
+     font-weight: 300; 
+     font-style: normal;
+}
+
 body{ 
     padding: 0;
     margin: 0;
+}
+
+.main{ 
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('@/assets/svg/homebg.svg');
+    height:640px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 52px;
+}
+
+.navWrapper{
+    background: rgba(255, 255, 255, 0.6);
+}
+
+ul li{ 
+  list-style-type: none;
+}
+
+.list-item {
+    @apply text-base leading-[18.75px] text-primaryText font-gilroyBold cursor-pointer;
+}
+
+.p-select-list-container{
+    background: white;
+    z-index: 10;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.p-select-option{ 
+    margin: 10px 0px;
+} 
+
+input::placeholder{
+    color:#4F4F4F;
+}
+
+.eventCat1{
+    height:240px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@/assets/svg/event1.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.eventCat2{
+    height:240px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@/assets/svg/event2.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.eventCat3{
+    height:240px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@/assets/svg/event3.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footerHeading{ 
+    @apply mb-3 font-gilroyBold text-xl leading-[23.44px] text-white
+}
+.footerList{ 
+    @apply font-gilroyMedium font-medium leading-[18.75px] text-white mt-[6px]
 }

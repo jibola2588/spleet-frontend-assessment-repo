@@ -9,6 +9,7 @@ import "ant-design-vue/dist/reset.css";
 
 //Primevue
 import Primevue from "primevue/config";
+import Select from 'primevue/select';
 
 //Toast
 // import Toast from "vue-toastification";
@@ -26,6 +27,7 @@ app
 .use(Primevue)
 .use(router)
 .use(Antd)
+.component("Select", Select)
 .mount('#app')
 
 // export const { toast } = useToast();

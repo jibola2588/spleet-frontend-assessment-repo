@@ -1,5 +1,4 @@
 <template>
-  yyyyyyyy
   <router-view/>
 </template>
 
