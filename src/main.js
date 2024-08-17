@@ -11,21 +11,21 @@ import "ant-design-vue/dist/reset.css";
 import Primevue from "primevue/config";
 
 //Toast
-import Toast from "vue-toastification";
-import "vue-toastification/dist/index.css";
-const options = {
-  timeout: 2000,
-};
-import { useToast } from "vue-toastification";
+// import Toast from "vue-toastification";
+// import "vue-toastification/dist/index.css";
+// const options = {
+//   timeout: 2000,
+// };
+// import { useToast } from "vue-toastification";
+// .use(Toast, options)
 
 const app = createApp(App);
-app.config.globalProperties.$toast = useToast();
+// app.config.globalProperties.$toast = useToast();
 
 app
 .use(Primevue)
 .use(router)
-.use(Toast, options)
 .use(Antd)
 .mount('#app')
 
-export const { toast } = useToast();
+// export const { toast } = useToast();
