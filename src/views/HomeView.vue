@@ -8,6 +8,6 @@
 
 
 export default {
-  name: 'Landing page',
+  name: 'Home view',
 }
 </script>
