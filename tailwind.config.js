@@ -4,13 +4,20 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        gilroyBold: ['gilroy-bold', 'sans-serif'],
+        gilroyBold: ['Gilroy bold', 'sans-serif'],
+        gilroyMedium: ['Gilroy medium', 'sans-serif'],
+        gilroySemiBold: ['Gilroy semiBold', 'sans-serif'],
+        gilroyRegular: ['Gilroy reqular', 'sans-serif'],
+        gilroyLight: ['Gilroy light', 'sans-serif'],
       },
       colors: {
-        bgPrimary: '#783EAD', 
-        textPrimary: '#432361', 
-        textSec: '#9B51E0', 
+        primaryBg: '#783EAD', 
+        primaryText: '#432361', 
+        secondaryText: '#9B51E0', 
     },
+    gridTemplateColumns: {
+        'custom': '34% 66%',
+      }
   },
   plugins: [],
 }
