@@ -8,6 +8,7 @@
 </template>
 
 <script>
+// components
 import Header from "@/components/header.vue"
 import Hero from "@/components/hero.vue"
 import AllEvents from "@/components/eventCat.vue"
@@ -20,6 +21,6 @@ export default {
     Hero,
     AllEvents,
     Footer
-  }
+  },
 }
 </script>

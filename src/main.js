@@ -12,21 +12,25 @@ import Primevue from "primevue/config";
 import Select from 'primevue/select';
 
 //Toast
-// import Toast from "vue-toastification";
-// import "vue-toastification/dist/index.css";
-// const options = {
-//   timeout: 2000,
-// };
-// import { useToast } from "vue-toastification";
-// .use(Toast, options)
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+const options = {
+  timeout: 2000,
+};
+import { useToast } from "vue-toastification";
+
+//EventBus
+import mitt from 'mitt';
+export const EventBus = mitt();
 
 const app = createApp(App);
-// app.config.globalProperties.$toast = useToast();
+app.config.globalProperties.$toast = useToast();
 
 app
 .use(Primevue)
 .use(router)
 .use(Antd)
+.use(Toast, options)
 .component("Select", Select)
 .mount('#app')
 

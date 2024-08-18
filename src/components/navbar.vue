@@ -33,8 +33,8 @@
       </div>
     </nav>
     <nav class="block mb:hidden">
-      <div class="py-3 navWrapper flex items-center justify-between h-20 rounded-[20px]">
-        <h2 class="text-[2rem] leading-[37.5px] mb-0 font-gilroyBold font-bold" :class="{'text-white px-3 sl:px-6' : type == 'a', 'text-black':type == 'b' }">
+      <div class="py-3 navWrapper flex items-center justify-between h-20 rounded-[20px]" :class="{'text-white px-3 sl:px-6' : type == 'a', 'text-black':type == 'b' }">
+        <h2 class="text-[2rem] leading-[37.5px] mb-0 font-gilroyBold font-bold" >
           rendezvous
         </h2>
         <span @click="toggleSidebar">
@@ -52,7 +52,7 @@
         <li class="list-item-resp"><a href="#faqs" class="block py-3">FAQs</a></li>
         <li class="list-item-resp"><a href="#contact" class="block py-3">Contact us</a></li>
     </ul>
-    <div class="flex flex-col space-y-5"> 
+    <div class="mt-5 flex flex-col space-y-7"> 
         <button
             type="button"
             class=" border border-white text-base leading-[18.75px] text-white font-gilroyBold px-6 py-3 rounded-[10px] cursor-pointer w-[100%]  sl:w-[70%] sm:w-[50%]"
