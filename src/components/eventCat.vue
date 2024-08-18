@@ -1,6 +1,6 @@
 <template>
  <section  class="max-w-[1312px] mx-auto px-4">
-    <div class="py-28 grid grid-cols-custom"> 
+    <div class="py-12 sm:py-28 grid xl:grid-cols-custom"> 
        <div class="pt-5">
         <h3 class="text-[2rem] leading-[37.5px] text-black mb-0 font-gilroyMedium font-semibold">Discover a World of Events Tailored Just for You.</h3>
         <button
@@ -10,7 +10,7 @@
               View all events
               </button>
        </div>
-       <div class="grid grid-cols-2 gap-4">
+       <div class=" mt-8 xl:mt-0 grid grid-cols-1 mb:grid-cols-2 gap-8 sm:gap-4">
         <div class="eventCat1">
             <p class="mb-0 text-2xl leading-[28.13px] text-white font-gilroyMedium  font-semibold ">Online Events</p>
         </div>

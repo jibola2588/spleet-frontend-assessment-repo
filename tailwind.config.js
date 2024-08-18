@@ -2,6 +2,18 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
+    screens:{ 
+      '3xl':'1560px',
+      '2xl': '1440px',
+      'xl': '1280px',
+      'xn': '1081px',
+      'lg':'1024px',
+      'md':'940px',
+      'mb':'790px',
+      'sm':'600px',
+      'sl':'450px',
+      'xs':'300px'
+    },
     extend: {
       fontFamily: {
         gilroyBold: ['Gilroy bold', 'sans-serif'],
@@ -17,7 +29,8 @@ module.exports = {
     },
     gridTemplateColumns: {
         'custom': '34% 66%',
-      }
+        'detail':'66% 29.5%',
+      },
   },
   plugins: [],
 }
