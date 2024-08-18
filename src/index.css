@@ -62,7 +62,10 @@ ul li{
 }
 
 .list-item {
-    @apply text-base leading-[18.75px] text-primaryText font-gilroyBold cursor-pointer;
+    @apply text-base leading-[18.75px] text-primaryText font-gilroyBold font-semibold cursor-pointer hover:border-b-[3px] hover:border-primaryText;
+}
+.list-item-resp {
+    @apply text-base leading-[18.75px] text-white font-gilroyBold font-semibold cursor-pointer;
 }
 
 .p-select-list-container{
@@ -113,6 +116,23 @@ input::placeholder{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.sidebar {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: #432361;
+    color: white;
+    transition: top 0.3s linear;
+    z-index: 999;
+    padding: 25px;
+  }
+  
+  .sidebar.open {
+      top: 0; 
+  }
 
 .footerHeading{ 
     @apply mb-3 font-gilroyBold text-xl leading-[23.44px] text-white
