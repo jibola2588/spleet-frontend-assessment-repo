@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-primaryText pt-16 pb-28" aria-labelledby="rendezvous-heading">
+  <section class="bg-primaryText pt-16 pb-28" aria-labelledby="rendezvous-footer">
     <div class="max-w-[1312px] mx-auto px-4 flex flex-col gap-6 sl:flex-row justify-between sm:gap-5"> 
       <div class="pt-1"> 
         <h2

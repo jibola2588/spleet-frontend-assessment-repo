@@ -12,7 +12,7 @@
             Ready to Rock? Discover the Hottest Events Here – Your Calendar's New
             Best Friend!
           </div>
-          <div class="hidden sm:block"> 
+          <div class="hidden sn:block"> 
             <form
             @submit="handleSearch" 
             class="bg-white rounded-[20px] py-6 h-[100px] max-w-[660px] grid grid-cols-2">
@@ -45,7 +45,7 @@
               </div>
             </form>
           </div>
-          <div class="block sm:hidden w-full mt-6"> 
+          <div class="block sn:hidden w-full mt-6"> 
             <form 
             @submit="handleSearch"
             class="bg-white w-full rounded-[20px] sm:py-4 h-[60px] sl:h-20 flex items-center">
