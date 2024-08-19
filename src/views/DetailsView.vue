@@ -90,7 +90,7 @@
                 <p
                   class="leading-[18.75px] mb-0 font-gilroyBold text-[#9B51E0] mt-3"
                 >
-                  {{ eventsObj.secPrice ? currency :'' }} {{ eventsObj.secPrice ? formateNum(eventsObj.secPrice) : "Free" }}
+                  {{ eventsObj.secPrice ? currency :'' }} {{ eventsObj.secPrice ? formateNum(eventsObj.secPrice) : "-" }}
                 </p>
               </span>
             </div>
@@ -165,14 +165,11 @@
 </template>
 
 <script>
-// components
 import Navbar from "@/components/navbar.vue";
 import Footer from "@/components/footer.vue";
 import { GoogleMap, Marker } from "vue3-google-map";
 import EmptyTemplate from "@/components/empty.vue";
-// API
 import eventService from "@/services/eventsServices";
-//toast
 import { useToast } from "vue-toastification";
 import moment from "moment";
 

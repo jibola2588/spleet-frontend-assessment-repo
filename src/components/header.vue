@@ -27,7 +27,15 @@
               </div>
               <div class="px-4 xl:px-6 flex items-center justify-between gap-2">
                   <label for="category" class="sr-only ">Select a category</label>
-                  <Select id="category" v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Category" class="w-40 text-[#4F4F4F] text-base leading-[18.75px] font-gilroyRegular" />
+                  <Select 
+                  id="category" 
+                  v-model="selectedCity" 
+                  :options="cities" 
+                  optionLabel="name" 
+                  placeholder="Category" 
+                  class="w-40 text-[#4F4F4F] text-base leading-[18.75px] font-gilroyRegular" 
+                  @change="handleChange"
+                  />
                   <button
                   type="submit"
                   class="bg-primaryBg text-base leading-[18.75px] text-white font-gilroyRegular px-6 py-3 rounded-[10px] font-semibold cursor-pointer"
@@ -104,6 +112,9 @@
       setTimeout(() => { 
         this.search = ''
       })
+    },
+    handleChange(){ 
+      EventBus.emit("filter-by-category",this.selectedCity.name);
     }
   },
   mounted(){
