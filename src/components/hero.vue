@@ -1,5 +1,5 @@
 <template>
-  <section class="max-w-[1312px] mx-auto px-4 pt-16 mb:pb-6">
+  <section class="max-w-[1312px] mx-auto px-4 pt-16">
       <div class="flex items-center justify-between gap-4 flex-wrap">
          <h3 class="text-[2rem] leading-[37.5px] text-black mb-0 font-gilroyBold">Trending events</h3>
          <div class="cursor-pointer flex items-center gap-1"> 
@@ -10,8 +10,8 @@
       <div v-if="isLoading" class="text-center my-5"> 
         <i class="pi pi-spin pi-spinner" style="font-size: 3rem ; animation-duration: 0.5s; color:#432361"></i>
       </div>
-      <div v-else-if='paginatedEventsArray.length'>
-      <div class="py-5 sm:py-10  grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-6"> 
+      <div v-else-if='paginatedEventsArray.length' class="py-5 sm:py-10 ">
+      <div class="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-6"> 
          <div  v-for="(card,i) in paginatedEventsArray" :key="i">
             <Card :card="card"/>
          </div>
@@ -102,11 +102,28 @@ export default {
       this.paginationData.totalPages = Math.ceil(this.paginationData.totalData / this.paginationData.pageLimit);
       this.paginationData.currentPage = 1;
       this.updatePaginatedData();
+    },
+   async getEventsByCategory(category){ 
+    this.isLoading = true
+    try{ 
+        const res = await eventService.searchEvent(category);
+        if(res.status = 200){ 
+          this.isLoading = false;
+           this.eventsArray = res?.data?.event;
+           this.filteredEventsArray = this.eventsArray;
+           this.paginationData.totalData = this.filteredEventsArray.length;
+           this.paginationData.totalPages = Math.ceil(this.paginationData.totalData / this.paginationData.pageLimit);
+           this.updatePaginatedData();
+        }
+      }catch(err){ 
+        this.isLoading = false;
+      }
     }
   },
   mounted(){
      this.getEvents();
      EventBus.on("search-events", this.filterEvents)
+     EventBus.on("filter-by-category", this.getEventsByCategory)
   }
 
 }

@@ -17,7 +17,7 @@ const eventService = {
         })),
     searchEvent: (category) =>
       serviceInstance
-        .get(`/events/search?${category}`)
+        .get(`/events/search?category=${category}`)
         .then(({ data, status }) => ({
           ...data,
           status,

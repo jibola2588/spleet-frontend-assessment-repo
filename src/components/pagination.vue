@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between items-center my-4">
+    <div class="flex justify-between items-center mt-2 sm:mt-4">
       <p class="font-quietSans text-grey600 mb-0 hidden xs:block">
         1 -
         {{
