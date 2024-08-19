@@ -1,7 +1,7 @@
 <template>
  <section  class="max-w-[1312px] mx-auto px-4">
     <div class="py-12 sm:py-28 grid xl:grid-cols-custom"> 
-       <div class="pt-5">
+       <div class="mb:pt-5">
         <h3 class="text-[2rem] leading-[37.5px] text-black mb-0 font-gilroyMedium font-semibold">Discover a World of Events Tailored Just for You.</h3>
         <button
                 type="button"

@@ -13,40 +13,53 @@
             Best Friend!
           </div>
           <div class="hidden sm:block"> 
-            <div class="bg-white rounded-[20px] py-6 h-[100px] max-w-[660px] grid grid-cols-2">
+            <form
+            @submit="handleSearch" 
+            class="bg-white rounded-[20px] py-6 h-[100px] max-w-[660px] grid grid-cols-2">
               <div class="flex items-center pl-4 xl:pl-10 pr-4 xl:pr-6 border-r-[2px] border-[#E0E0E0]">
                 <span aria-hidden="true" class="pi pi-search" style="color: #4f4f4f"></span>
                 <label for="search" class="sr-only">Search for an event</label>
-                <input id="search" type="text" placeholder="Search for an event"  class="flex-1 bg-transparent outline-none pl-4 text-[#4F4F4F] text-base leading-[18.75px] font-gilroyRegular"/>
+                <input id="search"
+                 type="text" 
+                 v-model="search"
+                 placeholder="Search for an event" 
+                  class="flex-1 bg-transparent outline-none pl-4 text-[#4F4F4F] text-base leading-[18.75px] font-gilroyRegular"/>
               </div>
               <div class="px-4 xl:px-6 flex items-center justify-between gap-2">
                   <label for="category" class="sr-only ">Select a category</label>
                   <Select id="category" v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Category" class="w-40 text-[#4F4F4F] text-base leading-[18.75px] font-gilroyRegular" />
-                <button
-                  type="button"
+                  <button
+                  type="submit"
                   class="bg-primaryBg text-base leading-[18.75px] text-white font-gilroyRegular px-6 py-3 rounded-[10px] font-semibold cursor-pointer"
                 >
                   Search
                 </button>
               </div>
-            </div>
+            </form>
           </div>
           <div class="block sm:hidden w-full mt-6"> 
-            <div class="bg-white w-full rounded-[20px] sm:py-4 h-[60px] sl:h-20 flex items-center">
+            <form 
+            @submit="handleSearch"
+            class="bg-white w-full rounded-[20px] sm:py-4 h-[60px] sl:h-20 flex items-center">
             <div class="flex-1 flex items-center pl-2 sl:pl-4  sl:pr-4">
               <span aria-hidden="true" class="pi pi-search" style="color: #4f4f4f"></span>
               <label for="search" class="sr-only">Search for an event</label>
-              <input id="search" type="text" placeholder="Search for an event"  class="flex-1 bg-transparent outline-none  pl-1 sl:pl-4 text-[#4F4F4F] text-base leading-[18.75px] font-gilroyRegular"/>
+              <input 
+              id="search" 
+              type="text" 
+              v-model="search"
+              placeholder="Search for an event"  
+              class="flex-1 bg-transparent outline-none  pl-1 sl:pl-4 text-[#4F4F4F] text-base leading-[18.75px] font-gilroyRegular"/>
             </div>
             <div class="px-2 sl:px-4">
               <button
-                type="button"
+                type="submit"
                 class="bg-primaryBg text-sm sl:text-base leading-[18.75px] text-white font-gilroyRegular px-2 sl:px-6 py-2 sl:py-3 rounded-[10px] font-semibold cursor-pointer"
               >
                 Search
               </button>
             </div>
-          </div>
+          </form>
           </div>
         </div>
       </section>
@@ -54,7 +67,9 @@
   </template>
   
   <script>
-  import Navbar from "@/components/navbar.vue";
+ import Navbar from "@/components/navbar.vue";
+ import eventService from "@/services/eventsServices"
+ import { EventBus } from '@/main';
 
   export default {
     components: {
@@ -62,16 +77,38 @@
   },
     data() {
       return {
-        cities: [
-          { name: "New York", code: "NY" },
-          { name: "Rome", code: "RM" },
-          { name: "London", code: "LDN" },
-          { name: "Istanbul", code: "IST" },
-          { name: "Paris", code: "PRS" },
-        ],
+        cities: [],
         selectedCity: "",
+        search:''
       };
     },
+    methods:{
+      async getEvents(){ 
+      try{ 
+        const res = await eventService.getAllEvents();
+        if(res.status = 200){ 
+            const data = res?.data?.allEvents;
+          this.cities =  data.map(item => { 
+              return { 
+                name:item.category
+              }
+            })
+        }
+      }catch(err){
+     console.log(err)
+      }  
+    },
+    handleSearch(e){ 
+      e.preventDefault();
+      EventBus.emit("search-events",this.search);
+      setTimeout(() => { 
+        this.search = ''
+      })
+    }
+  },
+  mounted(){
+    this.getEvents();
+  }
   };
   </script>
   
